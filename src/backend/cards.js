@@ -72,4 +72,4 @@ const cardSchema = new mongoose.Schema({
   ],
 });
 
-export default mongoose.model("Cards", cardSchema);
+export default mongoose.models.Cards || mongoose.model("Cards", cardSchema);

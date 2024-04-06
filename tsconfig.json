@@ -27,7 +27,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/components/SelectGroup/ReligionType.jsx",
-    "src/components/FormElements/index.jsx"
+    "src/components/FormElements/index.jsx",
+    "src/components/Dashboard/E-commerce.jsx"
   ],
   "exclude": ["node_modules"]
 }
