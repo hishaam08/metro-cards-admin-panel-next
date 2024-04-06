@@ -6,6 +6,11 @@ function UploadedImages({ images, setImages }) {
   const [loading, setLoading] = useState(false);
 
   function handleDelete(urlToBeRemoved) {
+    const image = images.filter((url) => {
+      return url !== urlToBeRemoved;
+    });
+
+    setImages(image);
     // setLoading(true);
     // axios
     //   .post("http://localhost:3000/api/deleteImage", {

@@ -49,13 +49,16 @@ const ECommerce = ({ cards }) => {
         ),
         actions: (
           <div className="flex gap-3 rounded-md">
-            <Link href={`/cards/${card._id}`} className="bg-green-500 p-3">
+            <Link
+              href={`/cards/${card._id}`}
+              className="bg-green-500 p-3 hover:bg-green-400"
+            >
               Edit
             </Link>
 
             <button
               onClick={() => handleDelete(card._id)}
-              className="bg-red p-3"
+              className="bg-red p-3 hover:bg-red/80"
             >
               Delete
             </button>
