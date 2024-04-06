@@ -12,6 +12,7 @@ import UploadedImages from "@/components/Images//UploadedImages";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/navigation";
 
 const FormElements = () => {
   const [title, setTitle] = useState("");
@@ -23,6 +24,8 @@ const FormElements = () => {
   const [designType, setDesignType] = useState("");
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
 
   let error = false;
   let errMsg = {};
@@ -81,6 +84,9 @@ const FormElements = () => {
             setOccassionType("");
             setDesignType("");
             setImages([]);
+
+            router.push("/");
+            router.refresh();
           }
         });
     } else

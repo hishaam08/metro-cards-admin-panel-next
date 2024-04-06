@@ -4,10 +4,16 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import DataTable from "react-data-table-component";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const ECommerce = ({ cards }) => {
+  const router = useRouter();
   function handleDelete(id) {
-    axios.post("http://localhost:3000/api/deleteCard");
+    axios
+      .post("http://localhost:3000/api/deleteCard", { id: id })
+      .then((res) => {
+        if (res) router.refresh();
+      });
   }
 
   const columns = [
