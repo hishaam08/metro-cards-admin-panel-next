@@ -7,8 +7,8 @@ import ReligionType from "@/components/SelectGroup/ReligionType";
 import OccassionType from "@/components/SelectGroup/OccassionType";
 import DesignType from "@/components/SelectGroup/DesignType";
 import CardType from "@/components/SelectGroup/CardType";
-import UploadImages from "@/components/Images/UploadImages";
-import UploadedImages from "@/components/Images//UploadedImages";
+import UploadImages from "@/components/Images/EditUploadImages";
+import UploadedImages from "@/components/Images/EditUploadedImages";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -55,7 +55,7 @@ const FormElements = ({ card }) => {
       data.religionType = religionType;
       data.occasion = occassionType;
       data.type = designType;
-      data.images = card.images;
+      data.images = images;
 
       console.log("data", data);
 
@@ -181,7 +181,7 @@ const FormElements = ({ card }) => {
 
                 <UploadImages setUrl={setImages} />
 
-                {/* <UploadedImages images={card.images} setImages={setImages} /> */}
+                <UploadedImages images={images} setImages={setImages} />
 
                 <div className="flex w-full justify-center">
                   <div>

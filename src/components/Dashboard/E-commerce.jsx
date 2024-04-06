@@ -48,7 +48,7 @@ const ECommerce = ({ cards }) => {
           </div>
         ),
         actions: (
-          <div className="flex gap-3">
+          <div className="flex gap-3 rounded-md">
             <Link href={`/cards/${card._id}`} className="bg-green-500 p-3">
               Edit
             </Link>
