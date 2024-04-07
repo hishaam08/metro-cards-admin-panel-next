@@ -9,21 +9,22 @@ export const metadata: Metadata = {
   description: "This is Next.js Home for TailAdmin Dashboard Template",
 };
 
-async function getAllCards() {
-  const data = await fetch("http://localhost:3000/api/cards", {
-    cache: "no-cache",
-  });
-  const cards = await data.json();
+// async function getAllCards() {
+//   const data = await fetch("http://localhost:3000/api/cards", {
+//     cache: "no-cache",
+//   });
+//   const cards = await data.json();
 
-  return cards;
-}
+//   return cards;
+// }
 
 export default async function Home() {
-  const cards = await getAllCards();
+  // const cards = await getAllCards();
   return (
     <>
       <DefaultLayout>
-        <ECommerce cards={cards} />
+        {/* <ECommerce cards={cards} /> */}
+        <ECommerce />
       </DefaultLayout>
     </>
   );

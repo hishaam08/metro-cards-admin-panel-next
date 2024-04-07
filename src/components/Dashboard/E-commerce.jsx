@@ -1,12 +1,22 @@
 "use client";
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import DataTable from "react-data-table-component";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const ECommerce = ({ cards }) => {
+const ECommerce = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    const data = { query: searchQuery };
+    axios
+      .post("http://localhost:3000/api/cards", { query: searchQuery })
+      .then((data) => setCards(data.data));
+  }, [searchQuery]);
+
   const router = useRouter();
   function handleDelete(id) {
     axios
@@ -76,6 +86,13 @@ const ECommerce = ({ cards }) => {
     <>
       <div className="w-full">
         {/* <span>Hello World</span> */}
+        <input
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          type="text"
+          placeholder="Type to search..."
+          className="mb-10 w-full bg-white p-3 pl-9 pr-4 font-medium shadow-1 focus:outline-none sm:mt-10 lg:mt-0 xl:w-125"
+        />
         <DataTable columns={columns} data={setRooms()} />
       </div>
     </>
